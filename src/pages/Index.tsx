@@ -1,5 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
+import { BookingSystem } from '../components/BookingSystem';
+import { ServiceCards } from '../components/ServiceCards';
+import { Gallery } from '../components/Gallery';
+import { FAQ } from '../components/FAQ';
+import { ContactForm } from '../components/ContactForm';
 
 const Index = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -93,6 +97,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-oasis-base font-inter">
+      {/* Header */}
       <header className="sticky top-0 z-50 bg-oasis-base/95 backdrop-blur-sm border-b border-oasis-taupe/20">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between h-16">
@@ -168,6 +173,17 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Service Cards */}
+        <ServiceCards />
+
+        {/* Gallery */}
+        <Gallery />
+
+        {/* Booking System */}
+        <div id="booking">
+          <BookingSystem />
+        </div>
+
         {/* Testimonials Section */}
         <section className="py-12 bg-oasis-contrast px-4 lg:px-6">
           <div className="container mx-auto max-w-6xl">
@@ -234,6 +250,12 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQ />
+
+        {/* Contact Form */}
+        <ContactForm />
 
         {/* Newsletter Section */}
         <section className="py-12 bg-oasis-contrast px-4 lg:px-6">
