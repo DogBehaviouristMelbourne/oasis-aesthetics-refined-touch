@@ -1,11 +1,10 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Instagram } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export const ContactForm = () => {
@@ -20,7 +19,7 @@ export const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Missing Information",
@@ -51,7 +50,7 @@ export const ContactForm = () => {
         <h2 className="text-2xl lg:text-3xl font-playfair font-semibold text-oasis-espresso text-center mb-12">
           Get In Touch
         </h2>
-        
+
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Contact Form */}
           <Card className="border-oasis-taupe/20">
@@ -85,7 +84,7 @@ export const ContactForm = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="phone" className="text-sm font-medium text-oasis-espresso">Phone</Label>
@@ -108,7 +107,7 @@ export const ContactForm = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <Label htmlFor="message" className="text-sm font-medium text-oasis-espresso">Message *</Label>
                   <Textarea
@@ -121,7 +120,7 @@ export const ContactForm = () => {
                     required
                   />
                 </div>
-                
+
                 <Button
                   type="submit"
                   className="w-full bg-oasis-espresso hover:bg-oasis-hover text-white"
@@ -131,68 +130,69 @@ export const ContactForm = () => {
               </form>
             </CardContent>
           </Card>
-          
+
           {/* Contact Information */}
           <div className="space-y-6">
             <Card className="border-oasis-taupe/20">
               <CardContent className="p-6">
                 <h3 className="text-lg font-playfair font-semibold text-oasis-espresso mb-4">Visit Our Studio</h3>
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="w-5 h-5 text-oasis-taupe mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-oasis-espresso">Address</p>
-                      <p className="text-sm text-oasis-hover">Melbourne, Victoria<br />Australia</p>
-                    </div>
-                  </div>
-                  
+
                   <div className="flex items-start space-x-3">
                     <Phone className="w-5 h-5 text-oasis-taupe mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-oasis-espresso">Phone</p>
-                      <p className="text-sm text-oasis-hover">Available upon booking</p>
+                      <p className="text-sm text-oasis-hover">0451 167 457</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-3">
                     <Mail className="w-5 h-5 text-oasis-taupe mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-oasis-espresso">Email</p>
-                      <a href="mailto:veanmikhael@proton.me" className="text-sm text-oasis-hover hover:text-oasis-espresso">
-                        veanmikhael@proton.me
+                      <a href="mailto:theoasissco@gmail.com" className="text-sm text-oasis-hover hover:text-oasis-espresso">
+                        theoasissco@gmail.com
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-3">
                     <Clock className="w-5 h-5 text-oasis-taupe mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-oasis-espresso">Hours</p>
                       <div className="text-sm text-oasis-hover">
-                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                        <p>Saturday: 9:00 AM - 4:00 PM</p>
-                        <p>Sunday: Closed</p>
+                        <p>Sunday: 8 AM – 2:30 PM</p>
+                        <p>Monday: Closed</p>
+                        <p>Tuesday: 11 AM – 9:30 PM</p>
+                        <p>Wednesday: Closed</p>
+                        <p>Thursday: 11 AM – 9 PM</p>
+                        <p>Friday: Closed</p>
+                        <p>Saturday: 11 AM – 9 PM</p>
+                        <p className="text-xs text-oasis-hover mt-2">Time zone: Australian Eastern Standard Time (AEST)</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card className="border-oasis-taupe/20 bg-oasis-contrast">
               <CardContent className="p-6">
                 <h3 className="text-lg font-playfair font-semibold text-oasis-espresso mb-3">Follow Us</h3>
                 <p className="text-sm text-oasis-hover mb-4">
                   Stay updated with our latest work and beauty tips on social media.
                 </p>
-                <div className="flex space-x-4">
-                  <a 
-                    href="https://www.instagram.com/oasisaesthetics.co" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-oasis-espresso hover:text-oasis-hover transition-colors"
-                  >
-                    <span className="text-sm font-medium">@oasisaesthetics.co</span>
+                <div className="flex gap-4 mt-3">
+                  <a href="https://www.instagram.com/oasisaesthetics.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <Instagram className="w-6 h-6 text-brown-500 hover:text-brown-700 transition" />
+                  </a>
+                  <a href="https://www.tiktok.com/@oasisaesthetics2" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <svg className="w-6 h-6 text-brown-500 hover:text-brown-700 transition" fill="currentColor" aria-hidden="true">
+                      <path d="M9.75 0h4.5v4.5h3.75a6.75 6.75 0 0 0 6.75 6.75v4.5a11.25 11.25 0 0 1-11.25-11.25V0zM6.75 11.25a3.375 3.375 0 1 0 3.375 3.375v-4.5a6.75 6.75 0 1 1-6.75 6.75 3.375 3.375 0 1 0 3.375-3.375z"/>
+                    </svg>
+                  </a>
+                  <a href="mailto:theoasissco@gmail.com" aria-label="Email">
+                    <Mail className="w-6 h-6 text-brown-500 hover:text-brown-700 transition" />
                   </a>
                 </div>
               </CardContent>

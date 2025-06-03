@@ -1,29 +1,29 @@
-
 import React from 'react';
-import { Star, Award, Shield, Users } from 'lucide-react';
+import { Home, CalendarCheck, UserCheck, ShieldCheck } from 'lucide-react';
 
 export const TrustBadges = () => {
+  // All badges are highlighted
   const badges = [
     {
-      icon: Star,
-      title: "5-Star Rated",
-      subtitle: "by 200+ clients"
+      icon: Home,
+      title: 'Locally Owned',
+      subtitle: 'Melbourne boutique studio',
     },
     {
-      icon: Award,
-      title: "Certified Expert",
-      subtitle: "Professional training"
+      icon: CalendarCheck,
+      title: 'Flexible Booking',
+      subtitle: 'Easy online scheduling',
     },
     {
-      icon: Shield,
-      title: "Hygiene Certified",
-      subtitle: "Strict safety protocols"
+      icon: UserCheck,
+      title: 'Expert Brow Artist',
+      subtitle: 'Certified & highly trained',
     },
     {
-      icon: Users,
-      title: "500+ Happy Clients",
-      subtitle: "Since 2020"
-    }
+      icon: ShieldCheck,
+      title: 'Premium Hygiene',
+      subtitle: 'Strict safety protocols',
+    },
   ];
 
   return (
@@ -31,9 +31,11 @@ export const TrustBadges = () => {
       <div className="container mx-auto max-w-4xl">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {badges.map((badge, index) => (
-            <div 
+            <div
               key={index}
-              className="flex flex-col items-center text-center p-4 group hover:scale-105 transition-all duration-300"
+              className={
+                'flex flex-col items-center text-center p-4 group hover:scale-105 transition-all duration-300 rounded-xl ring-2 ring-oasis-taupe/80 shadow-lg bg-oasis-contrast/60'
+              }
             >
               <div className="w-12 h-12 bg-gradient-to-br from-oasis-taupe to-oasis-clay rounded-full flex items-center justify-center mb-3 group-hover:shadow-lg transition-all duration-300">
                 <badge.icon className="w-6 h-6 text-white" />

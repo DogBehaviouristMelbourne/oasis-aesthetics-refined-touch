@@ -1,70 +1,87 @@
+import React, { useState } from 'react';
 
-import React from 'react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+interface FAQItem {
+  question: string;
+  answer: string;
+}
 
-const faqs = [
+const faqs: FAQItem[] = [
   {
-    question: "How long does an eyebrow sculpting session take?",
-    answer: "A typical eyebrow sculpting session takes 45 minutes. This includes consultation, mapping your ideal brow shape, hair removal, and aftercare instructions."
-  },
-  {
-    question: "How often should I get my eyebrows done?",
-    answer: "We recommend maintenance every 3-4 weeks to keep your brows looking their best. However, this can vary based on your hair growth rate and personal preference."
-  },
-  {
-    question: "Is eyebrow tinting safe?",
-    answer: "Yes, we use professional-grade, gentle tinting products specifically designed for facial hair. We always perform a patch test for first-time tinting clients."
-  },
-  {
-    question: "What should I expect during my first visit?",
-    answer: "Your first visit includes a detailed consultation where we discuss your brow goals, analyze your face shape, and create a customized treatment plan. We'll explain each step of the process."
-  },
-  {
-    question: "Do I need to prepare anything before my appointment?",
-    answer: "Please avoid tweezing or waxing your brows for at least 2 weeks before your appointment. Arrive makeup-free around the brow area if possible."
+    question: "What do I need to book an appointment?",
+    answer: "A valid phone number and email address are required for all appointments.",
   },
   {
     question: "What's your cancellation policy?",
-    answer: "We require 24 hours notice for cancellations or rescheduling. Same-day cancellations may incur a fee."
+    answer:
+      "Please give at least 24 hours notice if cancelling. If emergencies arise, notify us as soon as possible.",
   },
   {
-    question: "How do I maintain my brows between appointments?",
-    answer: "Avoid tweezing or trimming. Use a spoolie brush to groom daily and follow any specific aftercare instructions we provide. We'll give you personalized maintenance tips."
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept cash and card only. Bank transfers are not accepted. Refunds are not offered, but if you're unsatisfied, we’ll provide a touch-up or correction.",
   },
   {
-    question: "Do you offer consultations?",
-    answer: "Yes! We offer complimentary consultations where we can discuss your brow goals and recommend the best treatments for your needs."
-  }
+    question: "Are there any health and safety guidelines?",
+    answer:
+      "Yes. All tools are sanitised between clients. We use disposable items where appropriate. Please arrive with clean eyebrows and inform us of any allergies or skin conditions.",
+  },
+  {
+    question: "What should I know after eyebrow dyeing?",
+    answer:
+      "Avoid water, steam, scrubs, or active skincare near brows for 24 hours. Color typically lasts up to 7 days on skin and up to 7 weeks on hair.",
+  },
+  {
+    question: "How long does tinting last?",
+    answer:
+      "Tints usually last 4–6 weeks, depending on your hair type, skin routine, and product use.",
+  },
+  {
+    question: "What’s the aftercare for brow lamination?",
+    answer:
+      "Avoid water, heat, steam, and makeup for 24 hours. Use oil-free remover and avoid chlorine or harsh skincare to maintain results for 4–6 weeks.",
+  },
 ];
 
-export const FAQ = () => {
+const FAQ: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="py-16 px-4 lg:px-6 bg-oasis-base">
-      <div className="container mx-auto max-w-4xl">
-        <h2 className="text-2xl lg:text-3xl font-playfair font-semibold text-oasis-espresso text-center mb-4">
+    <section className="bg-oasis-base py-16 px-4 sm:px-6 lg:px-8 border-b border-oasis-taupe/10">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-playfair font-bold text-oasis-espresso mb-3 text-center">
           Frequently Asked Questions
         </h2>
-        <p className="text-center text-oasis-hover mb-12">
+        <p className="text-lg text-oasis-hover mb-10 text-center max-w-2xl mx-auto">
           Everything you need to know about our services and what to expect
         </p>
-        
-        <Accordion type="single" collapsible className="space-y-4">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
-              value={`item-${index}`}
-              className="border border-oasis-taupe/20 rounded-lg px-4 bg-white"
+            <div
+              key={index}
+              className="border border-oasis-taupe/30 rounded-2xl bg-white shadow-md overflow-hidden transition-all duration-300"
             >
-              <AccordionTrigger className="text-left text-sm font-medium text-oasis-espresso hover:text-oasis-hover">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-sm text-oasis-hover leading-relaxed pt-2">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+              <button
+                onClick={() => toggle(index)}
+                className="w-full flex justify-between items-center px-6 py-4 font-semibold text-oasis-espresso text-left hover:bg-oasis-taupe/10 focus:outline-none transition-colors duration-200"
+              >
+                <span>{faq.question}</span>
+                <span className={`ml-4 transform transition-transform duration-200 ${openIndex === index ? 'rotate-180' : ''}`}>▼</span>
+              </button>
+              {openIndex === index && (
+                <div className="px-6 pb-6 text-oasis-hover text-base animate-fade-in">
+                  {faq.answer}
+                </div>
+              )}
+            </div>
           ))}
-        </Accordion>
+        </div>
       </div>
     </section>
   );
 };
+
+export default FAQ;

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface ParallaxHeroProps {
@@ -48,9 +47,10 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({ scrollY }) => {
           {/* Enhanced CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-3">
             <a 
-              href="booking.html" 
+              href="https://oasisaesthetics.setmore.com/book" 
               className="group inline-flex items-center justify-center bg-gradient-to-r from-oasis-espresso to-oasis-hover text-white px-6 py-3 rounded-full text-base font-semibold hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden"
               tabIndex={0}
+              target="_blank" rel="noopener"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-oasis-clay to-oasis-taupe opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="relative">Book Now</span>
@@ -77,7 +77,7 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({ scrollY }) => {
               <div 
                 className="w-full h-full bg-cover bg-center"
                 style={{
-                  backgroundImage: 'url("https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80")',
+                  backgroundImage: 'url("/hero-bg.jpg")',
                   transform: `translateY(${scrollY * 0.1}px)`
                 }}
               ></div>

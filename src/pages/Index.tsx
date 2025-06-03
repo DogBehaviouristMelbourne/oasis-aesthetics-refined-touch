@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { BookingSystem } from '../components/BookingSystem';
 import { ServiceCards } from '../components/ServiceCards';
 import { Gallery } from '../components/Gallery';
-import { FAQ } from '../components/FAQ';
+import FAQ from '../components/FAQ';
 import { ContactForm } from '../components/ContactForm';
 import { ParallaxHero } from '../components/ParallaxHero';
 import { FloatingActionButton } from '../components/FloatingActionButton';
-import { InteractiveTestimonials } from '../components/InteractiveTestimonials';
 import { TransformationStories } from '../components/TransformationStories';
 import { TrustBadges } from '../components/TrustBadges';
 import { Header } from '../components/Header';
@@ -64,8 +63,8 @@ const Index = () => {
         "addressLocality": "Melbourne",
         "addressCountry": "AU"
       },
-      "image": "https://lovable.dev/opengraph-image-p98pqg.png",
-      "logo": "https://lovable.dev/opengraph-image-p98pqg.png"
+      "image": "/images/hero-bg.jpg", // Update to your own image path
+      "logo": "/images/logo.svg" // Update to your own logo path
     };
 
     const schemaScript = document.createElement('script');
@@ -113,7 +112,9 @@ const Index = () => {
 
       <main className="relative z-10">
         {/* Parallax Hero Section */}
-        <ParallaxHero scrollY={scrollY} />
+        <section id="home">
+          <ParallaxHero scrollY={scrollY} />
+        </section>
 
         {/* Trust Badges with proper spacing */}
         <div className="pt-8">
@@ -121,34 +122,29 @@ const Index = () => {
         </div>
 
         {/* Service Cards with proper spacing */}
-        <div id="services" className="scroll-mt-20 pt-16">
+        <section id="services" className="scroll-mt-20 pt-16">
           <ServiceCards />
-        </div>
+        </section>
 
         {/* Transformation Stories */}
-        <div className="pt-16">
+        <section id="about" className="pt-16">
           <TransformationStories />
-        </div>
+        </section>
 
         {/* Gallery */}
-        <div className="pt-16">
+        <section id="gallery" className="pt-16">
           <Gallery />
-        </div>
+        </section>
 
         {/* Booking System */}
-        <div id="booking" className="scroll-mt-20 pt-16">
+        <section id="booking" className="scroll-mt-20 pt-16">
           <BookingSystem />
-        </div>
-
-        {/* Interactive Testimonials */}
-        <div className="pt-16">
-          <InteractiveTestimonials />
-        </div>
+        </section>
 
         {/* Why Choose Us */}
-        <div className="pt-16">
+        <section id="blog" className="pt-16">
           <WhyChooseUs />
-        </div>
+        </section>
 
         {/* FAQ Section */}
         <div className="pt-16">
@@ -176,3 +172,21 @@ const Index = () => {
 };
 
 export default Index;
+
+<section className="bg-neutral-100 py-12">
+  <div className="max-w-6xl mx-auto px-4">
+    <h2 className="text-2xl font-bold text-center mb-6 text-brown-900">From the Beauty Journal</h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+        <h3 className="text-lg font-semibold text-brown-800">How to Care for Your Brows After Waxing</h3>
+        <p className="text-sm text-brown-600 mt-2 mb-3">Post-waxing aftercare is key for smooth, irritation-free brows.</p>
+        <a href="/blog" className="text-brown-700 font-medium hover:underline">Read More →</a>
+      </div>
+      <div className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+        <h3 className="text-lg font-semibold text-brown-800">Is Brow Lamination Right for You?</h3>
+        <p className="text-sm text-brown-600 mt-2 mb-3">Learn who it suits best and what aftercare involves.</p>
+        <a href="/blog" className="text-brown-700 font-medium hover:underline">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>

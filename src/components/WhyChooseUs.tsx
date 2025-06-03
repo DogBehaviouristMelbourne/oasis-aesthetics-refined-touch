@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export const WhyChooseUs = () => {
@@ -22,10 +21,11 @@ export const WhyChooseUs = () => {
       <div className="container mx-auto max-w-5xl relative z-10">
         <div className="text-center mb-16">
           <h3 className="text-3xl lg:text-4xl font-playfair font-bold text-oasis-espresso mb-4 animate-fade-in">
-            Why Choose Us?
+            About
           </h3>
           <p className="text-lg text-oasis-hover max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
-            Personalized beauty with professional excellence
+            Unleash your confidence with perfectly sculpted brows and smooth, flawless skin! Book your eyebrow and waxing session today for a polished, beautiful look.<br /><br />
+            Can’t find a time that suits your schedule? Don’t hesitate to reach out! Message me, and we’ll arrange a time that’s perfect for you. 🌸✨
           </p>
         </div>
         

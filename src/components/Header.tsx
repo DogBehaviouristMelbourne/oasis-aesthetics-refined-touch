@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Navigation } from './Navigation';
+import { Phone } from 'lucide-react';
 
 interface HeaderProps {
   isNavOpen: boolean;
@@ -10,6 +10,10 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ isNavOpen, toggleNav, handleKeyDown, scrollY }) => {
+  // Close nav after navigation (for mobile)
+  const handleNavigate = () => {
+    if (isNavOpen) toggleNav();
+  };
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrollY > 50 ? 'bg-oasis-base/95 backdrop-blur-xl shadow-lg' : 'bg-oasis-base/90 backdrop-blur-lg'} border-b border-oasis-taupe/20`}>
       <div className="container mx-auto px-4 lg:px-6">
@@ -46,7 +50,13 @@ export const Header: React.FC<HeaderProps> = ({ isNavOpen, toggleNav, handleKeyD
             <span className={`w-5 h-0.5 bg-oasis-espresso transition-all duration-300 ${isNavOpen ? '-rotate-90 -translate-y-1.5' : ''}`}></span>
           </button>
           
-          <Navigation isNavOpen={isNavOpen} />
+          <Navigation isNavOpen={isNavOpen} onNavigate={handleNavigate} />
+          
+          <div className="flex items-center gap-2 ml-auto">
+            <Phone className="w-5 h-5 text-oasis-espresso" aria-hidden="true" />
+            <span className="hidden sm:inline">Call us</span>
+            <a href="tel:0451167457" className="font-bold text-oasis-espresso hover:text-oasis-hover transition-colors ml-1 whitespace-nowrap">0451 167 457</a>
+          </div>
         </div>
       </div>
     </header>

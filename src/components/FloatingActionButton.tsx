@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
 
@@ -19,19 +18,17 @@ export const FloatingActionButton = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  const scrollToBooking = () => {
-    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <button
-      onClick={scrollToBooking}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`fixed bottom-6 right-6 z-50 transition-all duration-500 transform ${
+    <a
+      href="https://oasisaesthetics.setmore.com/book"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`fixed bottom-4 right-4 bg-brown-700 text-white rounded-full p-4 shadow-md z-50 transition-all duration-500 transform ${
         isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
       } ${isHovered ? 'scale-110' : ''}`}
-      aria-label="Quick booking"
+      aria-label="Book Now"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative">
         {/* Pulsing background ring */}
@@ -53,6 +50,6 @@ export const FloatingActionButton = () => {
           </div>
         </div>
       </div>
-    </button>
+    </a>
   );
 };

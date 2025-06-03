@@ -1,104 +1,161 @@
-
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Clock, Star } from 'lucide-react';
 
 const services = [
-  {
-    name: 'Eyebrow Sculpting',
-    description: 'Precision shaping and sculpting to enhance your natural brow shape.',
-    duration: '45 minutes',
-    price: '$65',
-    features: ['Consultation', 'Shaping', 'Tweezing', 'Aftercare advice'],
-    popular: true
-  },
-  {
-    name: 'Eyebrow Tinting',
-    description: 'Semi-permanent coloring to define and enhance your brow color.',
-    duration: '30 minutes',
-    price: '$35',
-    features: ['Color matching', 'Professional tint', 'Styling', 'Touch-up guide']
-  },
-  {
-    name: 'Full Face Wax',
-    description: 'Complete facial hair removal for smooth, flawless skin.',
-    duration: '60 minutes',
-    price: '$85',
-    features: ['Upper lip', 'Chin', 'Cheeks', 'Soothing treatment']
-  },
-  {
-    name: 'Brow & Tint Combo',
-    description: 'Complete brow transformation with shaping and tinting.',
-    duration: '60 minutes',
-    price: '$85',
-    features: ['Full sculpting', 'Professional tint', 'Styling', 'Maintenance tips'],
-    featured: true
-  }
+	{
+		name: 'Eyebrow Wax',
+		duration: '15 mins',
+		price: '$20',
+		description: 'Gentle hair removal to shape and define the natural brow line.',
+		features: ['Shaping', 'Gentle wax', 'Aftercare advice'],
+		popular: true,
+	},
+	{
+		name: 'Eyebrow Wax and Tint',
+		duration: '30 mins',
+		price: '$45',
+		description: 'Combines brow shaping with semi-permanent color enhancement.',
+		features: ['Shaping', 'Wax', 'Tint', 'Color match'],
+	},
+	{
+		name: 'Eyebrow Waxing, Tinting and Lamination',
+		duration: '1 hr',
+		price: '$70',
+		description: 'Complete brow styling: wax, tint, and set for a polished look.',
+		features: ['Wax', 'Tint', 'Lamination', 'Styling'],
+	},
+	{
+		name: 'Eyebrow Threading',
+		duration: '15 mins',
+		price: '$20',
+		description: 'Precision hair removal technique using thread for clean lines.',
+		features: ['Threading', 'Shaping', 'Gentle technique'],
+	},
+	{
+		name: 'Eyebrow Threading and Tint',
+		duration: '30 mins',
+		price: '$45',
+		description: 'Clean threading paired with subtle brow tint for definition.',
+		features: ['Threading', 'Tint', 'Color match'],
+	},
+	{
+		name: 'Eyebrow Threading, Tinting and Lamination',
+		duration: '1 hr',
+		price: '$70',
+		description: 'Full shaping and color package with lamination for structure.',
+		features: ['Threading', 'Tint', 'Lamination'],
+	},
+	{
+		name: 'Eyebrow Dye',
+		duration: '20 mins',
+		price: '$30',
+		description: 'Semi-permanent dye to enhance or darken natural brow tone.',
+		features: ['Dye', 'Color match', 'Aftercare'],
+	},
+	{
+		name: 'Eyebrow Lamination',
+		duration: '30 mins',
+		price: '$30',
+		description: 'Smooths and lifts brow hairs for a fuller, set-in-place finish.',
+		features: ['Lamination', 'Styling', 'Aftercare'],
+	},
+	{
+		name: 'Eyebrow Lamination and Dye',
+		duration: '35 mins',
+		price: '$40',
+		description: 'Enhances brow color and shape with lamination and dye combo.',
+		features: ['Lamination', 'Dye', 'Styling'],
+	},
+	{
+		name: 'Eyebrow Lami, Dye and Thread',
+		duration: '1 hr',
+		price: '$70',
+		description: 'A full brow makeover including shaping, dyeing, and lamination.',
+		features: ['Threading', 'Dye', 'Lamination'],
+	},
+	{
+		name: 'Eyebrow Thread & Lamination',
+		duration: '30 mins',
+		price: '$55',
+		description: 'Clean threading paired with lamination for styled definition.',
+		features: ['Threading', 'Lamination', 'Styling'],
+	},
+	{
+		name: 'Eyebrow Wax and Lamination',
+		duration: '30 mins',
+		price: '$55',
+		description: 'Shaping by wax followed by lamination for structure and hold.',
+		features: ['Wax', 'Lamination', 'Styling'],
+	},
+	{
+		name: 'Full Face Wax',
+		duration: '35 mins',
+		price: '$60',
+		description: 'Hair removal across face including brow line, cheeks, and lip.',
+		features: ['Brow', 'Cheeks', 'Lip', 'Chin'],
+	},
+	{
+		name: 'Upper Lip Wax',
+		duration: '10 mins',
+		price: '$10',
+		description: 'Quick and effective hair removal from the upper lip area.',
+		features: ['Upper lip', 'Gentle wax'],
+	},
 ];
 
-export const ServiceCards = () => {
-  return (
-    <section className="py-16 px-4 lg:px-6">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-2xl lg:text-3xl font-playfair font-semibold text-oasis-espresso text-center mb-4">
-          Our Services
-        </h2>
-        <p className="text-center text-oasis-hover mb-12 max-w-2xl mx-auto">
-          Discover our range of professional treatments designed to enhance your natural beauty
-        </p>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <Card 
-              key={service.name}
-              className={`relative border hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
-                service.featured ? 'border-oasis-taupe' : 'border-oasis-taupe/30'
-              }`}
-            >
-              {service.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-oasis-taupe text-white px-3 py-1 rounded-full text-xs font-medium flex items-center">
-                    <Star className="w-3 h-3 mr-1" />
-                    Popular
-                  </span>
-                </div>
-              )}
-              
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg font-playfair text-oasis-espresso">{service.name}</CardTitle>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="flex items-center text-oasis-hover">
-                    <Clock className="w-4 h-4 mr-1" />
-                    {service.duration}
-                  </span>
-                  <span className="text-xl font-semibold text-oasis-espresso">{service.price}</span>
-                </div>
-              </CardHeader>
-              
-              <CardContent className="space-y-4">
-                <p className="text-sm text-oasis-hover leading-relaxed">{service.description}</p>
-                
-                <ul className="space-y-1">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="text-xs text-oasis-espresso flex items-center">
-                      <div className="w-1.5 h-1.5 bg-oasis-taupe rounded-full mr-2"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                
-                <Button 
-                  className="w-full bg-oasis-espresso hover:bg-oasis-hover text-white text-sm"
-                  onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Book Now
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+export const ServiceCards = () => (
+	<section className="py-16 px-4 lg:px-6 bg-oasis-base border-b border-oasis-taupe/10">
+		<div className="container mx-auto max-w-6xl">
+			<h2 className="text-3xl lg:text-4xl font-playfair font-bold text-oasis-espresso mb-3 text-center">
+				Our Services
+			</h2>
+			<p className="text-lg text-oasis-hover mb-10 text-center max-w-2xl mx-auto">
+				Discover our range of professional treatments designed to enhance your natural beauty
+			</p>
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+				{services.map((service, idx) => (
+					<div
+						key={idx}
+						className="relative flex flex-col h-full min-h-[480px] bg-white border border-oasis-taupe/30 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-7 group"
+					>
+						{service.popular ? (
+							<span className="absolute -top-4 left-4 flex items-center gap-1 px-3 py-1 rounded-full bg-oasis-taupe text-white text-xs font-semibold shadow-md z-10">
+								<Star className="w-4 h-4 mr-1" fill="currentColor" /> Popular
+							</span>
+						) : null}
+						<h3 className="text-xl font-playfair font-bold text-oasis-espresso mb-2">
+							{service.name}
+						</h3>
+						<div className="flex items-center justify-between mb-2">
+							<span className="flex items-center text-oasis-hover text-sm font-medium">
+								<Clock className="w-4 h-4 mr-1 text-oasis-taupe" /> {service.duration}
+							</span>
+							<span className="text-2xl font-bold text-oasis-espresso">
+								{service.price}
+							</span>
+						</div>
+						<p className="text-oasis-hover text-sm mb-4 min-h-[48px]">
+							{service.description}
+						</p>
+						<ul className="mb-6 text-oasis-espresso/90 text-sm space-y-1">
+							{service.features.map((feature, i) => (
+								<li key={i} className="flex items-start gap-2">
+									<span className="mt-1 w-2 h-2 rounded-full bg-oasis-taupe/80 inline-block"></span>
+									<span>{feature}</span>
+								</li>
+							))}
+						</ul>
+						<a
+							href="https://booking.setmore.com/scheduleappointment/6b1b7b6e-2e2a-4e7e-8e2e-7e2e7e2e7e2e"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="mt-auto inline-block w-full text-center bg-oasis-espresso hover:bg-oasis-taupe text-white font-semibold py-2 rounded-lg shadow transition-colors duration-200"
+						>
+							Book Now
+						</a>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+);
