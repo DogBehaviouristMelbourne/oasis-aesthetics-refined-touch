@@ -33,16 +33,16 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({ scrollY }) => {
         {/* Text Content */}
         <div className="animate-fade-in">
           <h1 className="text-4xl lg:text-6xl xl:text-7xl font-playfair font-bold text-oasis-espresso mb-6 leading-tight tracking-tight">
-            Empowering Your<br />
+            Enhance Your<br />
             <span className="bg-gradient-to-r from-oasis-taupe via-oasis-clay to-oasis-hover bg-clip-text text-transparent animate-pulse">
               Natural Beauty
             </span>
           </h1>
           <p className="text-xl lg:text-2xl xl:text-3xl text-oasis-hover mb-6 leading-relaxed font-light">
-            Expert Brow Sculpting & Waxing with a Personal Touch in Melbourne
+            Expert Brow Sculpting & Waxing in Melbourne
           </p>
           <p className="text-base lg:text-lg text-oasis-espresso/70 mb-10 leading-relaxed">
-            Welcome to Oasis Aesthetics, where your comfort and confidence come first. Experience gentle, precise treatments in a relaxing, spa-like environment designed for your wellbeing.
+            Precision treatments in a relaxing environment designed for your comfort.
           </p>
           
           {/* Enhanced CTA buttons */}
@@ -53,7 +53,7 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({ scrollY }) => {
               tabIndex={0}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-oasis-clay to-oasis-taupe opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              <span className="relative">Book Your Appointment</span>
+              <span className="relative">Book Now</span>
               <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300 relative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -83,7 +83,7 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({ scrollY }) => {
               ></div>
               {/* Overlay text */}
               <div className="absolute bottom-6 left-6 text-white z-20">
-                <p className="text-sm font-medium opacity-90">Your journey to confidence starts here</p>
+                <p className="text-sm font-medium opacity-90">Your confidence starts here</p>
               </div>
             </div>
 
