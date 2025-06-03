@@ -114,11 +114,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-oasis-base font-inter relative overflow-x-hidden">
-      {/* Organic background shapes */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 -left-20 w-96 h-96 bg-gradient-to-br from-oasis-taupe/10 to-oasis-clay/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 -right-20 w-80 h-80 bg-gradient-to-tl from-oasis-warm-taupe/10 to-oasis-contrast/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-r from-oasis-clay/5 to-oasis-taupe/5 rounded-full blur-2xl animate-pulse" style={{animationDelay: '4s'}}></div>
+      {/* Organic background shapes - repositioned to avoid overlaps */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-40 -left-20 w-80 h-80 bg-gradient-to-br from-oasis-taupe/8 to-oasis-clay/8 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-40 -right-20 w-64 h-64 bg-gradient-to-tl from-oasis-warm-taupe/8 to-oasis-contrast/15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-gradient-to-r from-oasis-clay/4 to-oasis-taupe/4 rounded-full blur-2xl animate-pulse" style={{animationDelay: '4s'}}></div>
       </div>
 
       {/* Header */}
@@ -129,43 +129,59 @@ const Index = () => {
         scrollY={scrollY} 
       />
 
-      <main>
+      <main className="relative z-10">
         {/* Parallax Hero Section */}
         <ParallaxHero scrollY={scrollY} />
 
-        {/* Trust Badges */}
-        <TrustBadges />
+        {/* Trust Badges with proper spacing */}
+        <div className="pt-8">
+          <TrustBadges />
+        </div>
 
-        {/* Service Cards */}
-        <div id="services" className="scroll-mt-20">
+        {/* Service Cards with proper spacing */}
+        <div id="services" className="scroll-mt-20 pt-16">
           <ServiceCards />
         </div>
 
         {/* Transformation Stories */}
-        <TransformationStories />
+        <div className="pt-16">
+          <TransformationStories />
+        </div>
 
         {/* Gallery */}
-        <Gallery />
+        <div className="pt-16">
+          <Gallery />
+        </div>
 
         {/* Booking System */}
-        <div id="booking" className="scroll-mt-20">
+        <div id="booking" className="scroll-mt-20 pt-16">
           <BookingSystem />
         </div>
 
         {/* Interactive Testimonials */}
-        <InteractiveTestimonials />
+        <div className="pt-16">
+          <InteractiveTestimonials />
+        </div>
 
         {/* Why Choose Us */}
-        <WhyChooseUs />
+        <div className="pt-16">
+          <WhyChooseUs />
+        </div>
 
         {/* FAQ Section */}
-        <FAQ />
+        <div className="pt-16">
+          <FAQ />
+        </div>
 
         {/* Contact Form */}
-        <ContactForm />
+        <div className="pt-16">
+          <ContactForm />
+        </div>
 
         {/* Newsletter */}
-        <Newsletter />
+        <div className="pt-16">
+          <Newsletter />
+        </div>
       </main>
 
       {/* Footer */}
