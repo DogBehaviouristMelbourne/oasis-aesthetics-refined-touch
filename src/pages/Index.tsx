@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { BookingSystem } from '../components/BookingSystem';
 import { ServiceCards } from '../components/ServiceCards';
@@ -74,21 +73,6 @@ const Index = () => {
     schemaScript.textContent = JSON.stringify(schema);
     document.head.appendChild(schemaScript);
 
-    // Add Google Analytics (placeholder)
-    const gaScript = document.createElement('script');
-    gaScript.async = true;
-    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-    document.head.appendChild(gaScript);
-
-    const gaConfig = document.createElement('script');
-    gaConfig.textContent = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    `;
-    document.head.appendChild(gaConfig);
-
     return () => {
       // Cleanup meta tags on unmount
       document.head.removeChild(metaKeywords);
@@ -96,8 +80,6 @@ const Index = () => {
       document.head.removeChild(ogDescription);
       document.head.removeChild(ogType);
       document.head.removeChild(schemaScript);
-      document.head.removeChild(gaScript);
-      document.head.removeChild(gaConfig);
     };
   }, []);
 
