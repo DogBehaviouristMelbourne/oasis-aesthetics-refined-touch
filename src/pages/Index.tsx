@@ -11,7 +11,6 @@ import { TrustBadges } from '../components/TrustBadges';
 import { Header } from '../components/Header';
 import { WhyChooseUs } from '../components/WhyChooseUs';
 import { Newsletter } from '../components/Newsletter';
-import { Footer } from '../components/Footer';
 
 const Index = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -95,27 +94,25 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-oasis-base font-inter relative overflow-x-hidden">
-      {/* Organic background shapes - repositioned to avoid overlaps */}
+      {/* Organic background shapes, smaller/less intrusive for mobile */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-40 -left-20 w-80 h-80 bg-gradient-to-br from-oasis-taupe/8 to-oasis-clay/8 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-40 -right-20 w-64 h-64 bg-gradient-to-tl from-oasis-warm-taupe/8 to-oasis-contrast/15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-gradient-to-r from-oasis-clay/4 to-oasis-taupe/4 rounded-full blur-2xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-24 -left-20 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-br from-oasis-taupe/15 to-oasis-clay/10 rounded-full blur-2xl animate-pulse"/>
+        <div className="absolute bottom-28 -right-16 w-40 h-40 sm:w-56 sm:h-56 bg-gradient-to-tl from-oasis-warm-taupe/10 to-oasis-contrast/15 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}/>
+        <div className="absolute top-1/2 left-1/4 w-28 h-28 sm:w-40 sm:h-40 bg-gradient-to-r from-oasis-clay/8 to-oasis-taupe/6 rounded-full blur-xl animate-pulse" style={{animationDelay: '4s'}}/>
       </div>
-
       {/* Header */}
-      <Header 
-        isNavOpen={isNavOpen} 
-        toggleNav={toggleNav} 
-        handleKeyDown={handleKeyDown} 
-        scrollY={scrollY} 
+      <Header
+        isNavOpen={isNavOpen}
+        toggleNav={toggleNav}
+        handleKeyDown={handleKeyDown}
+        scrollY={scrollY}
       />
 
       <main className="relative z-10">
-        {/* Parallax Hero Section */}
-        <section id="home">
+        {/* HERO */}
+        <section id="home" className="scroll-mt-20">
           <ParallaxHero scrollY={scrollY} />
         </section>
-
         {/* Trust Badges with proper spacing */}
         <div className="pt-8">
           <TrustBadges />
@@ -162,6 +159,7 @@ const Index = () => {
         </div>
       </main>
 
+      {/* Footer and FAB button same */}
       {/* Footer */}
       <Footer />
 
@@ -172,21 +170,3 @@ const Index = () => {
 };
 
 export default Index;
-
-<section className="bg-neutral-100 py-12">
-  <div className="max-w-6xl mx-auto px-4">
-    <h2 className="text-2xl font-bold text-center mb-6 text-brown-900">From the Beauty Journal</h2>
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
-        <h3 className="text-lg font-semibold text-brown-800">How to Care for Your Brows After Waxing</h3>
-        <p className="text-sm text-brown-600 mt-2 mb-3">Post-waxing aftercare is key for smooth, irritation-free brows.</p>
-        <a href="/blog" className="text-brown-700 font-medium hover:underline">Read More →</a>
-      </div>
-      <div className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
-        <h3 className="text-lg font-semibold text-brown-800">Is Brow Lamination Right for You?</h3>
-        <p className="text-sm text-brown-600 mt-2 mb-3">Learn who it suits best and what aftercare involves.</p>
-        <a href="/blog" className="text-brown-700 font-medium hover:underline">Read More →</a>
-      </div>
-    </div>
-  </div>
-</section>
