@@ -26,4 +26,6 @@ const Toaster = ({ ...props }: ToasterProps) => {
   )
 }
 
+// TODO: Move shared constants/functions to a separate file for Fast Refresh compatibility.
+
 export { Toaster, toast }

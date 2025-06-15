@@ -116,7 +116,7 @@ export const ServiceCards = () => (
 				{services.map((service, idx) => (
 					<div
 						key={idx}
-						className="relative flex flex-col h-full min-h-[480px] bg-white border border-oasis-taupe/30 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-7 group"
+						className="relative flex flex-col h-full min-h-[340px] max-w-xs mx-auto bg-white border border-oasis-taupe/30 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-5 group"
 					>
 						{service.popular ? (
 							<span className="absolute -top-4 left-4 flex items-center gap-1 px-3 py-1 rounded-full bg-oasis-taupe text-white text-xs font-semibold shadow-md z-10">
@@ -146,7 +146,7 @@ export const ServiceCards = () => (
 							))}
 						</ul>
 						<a
-							href="https://booking.setmore.com/scheduleappointment/6b1b7b6e-2e2a-4e7e-8e2e-7e2e7e2e7e2e"
+							href="https://oasisaesthetics.setmore.com/book"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="mt-auto inline-block w-full text-center bg-oasis-espresso hover:bg-oasis-taupe text-white font-semibold py-2 rounded-lg shadow transition-colors duration-200"

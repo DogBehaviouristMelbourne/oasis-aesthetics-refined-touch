@@ -90,7 +90,7 @@ export const TransformationStories = () => {
 						<h3 className="text-base font-playfair font-bold text-oasis-espresso mb-4 text-center">
 							What Our Clients Say
 						</h3>
-						<div className="space-y-4">
+						<div className="space-y-4 max-h-64 lg:max-h-80 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-oasis-taupe/40 scrollbar-track-transparent">
 							{reviews.map((review, index) => (
 								<div
 									key={index}

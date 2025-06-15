@@ -53,4 +53,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 Button.displayName = "Button"
 
+// TODO: Move shared constants/functions to a separate file for Fast Refresh compatibility.
+
 export { Button, buttonVariants }

@@ -18,6 +18,8 @@ import {
 } from "@/components/ui/tooltip"
 import { OasisError } from "@/lib/errorUtils"
 
+// TODO: Move shared constants/functions to a separate file for Fast Refresh compatibility.
+
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const SIDEBAR_WIDTH = "16rem"

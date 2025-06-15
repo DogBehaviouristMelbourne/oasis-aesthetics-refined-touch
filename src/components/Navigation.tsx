@@ -32,13 +32,13 @@ export const Navigation: React.FC<NavigationProps> = ({ isNavOpen, onNavigate })
     <nav 
       id="main-nav" 
       aria-label="Main Navigation"
-      className={`$ {isNavOpen ? 'flex' : 'hidden'} md:flex absolute md:relative top-full md:top-auto left-0 md:left-auto w-full md:w-auto bg-oasis-base/95 md:bg-transparent backdrop-blur-sm border-b md:border-b-0 border-oasis-taupe/20 md:border-0 flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-6 py-4 md:py-0 px-4 md:px-0 transition-all duration-300`}
+      className={`fixed md:static top-16 left-0 w-full md:w-auto z-40 bg-oasis-base/98 md:bg-transparent border-b md:border-0 border-oasis-taupe/20 md:border-none flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-6 py-4 md:py-0 px-4 md:px-0 transition-all duration-300 ${isNavOpen ? 'flex' : 'hidden'} md:flex`}
     >
       {navItems.map((item) => (
         <a 
           key={item.href}
           href={item.href}
-          className="text-base md:text-sm text-oasis-espresso hover:text-oasis-hover transition-all duration-300 font-medium hover:scale-105 relative group px-2 py-1 md:px-0 md:py-0" 
+          className="text-sm sm:text-base md:text-sm text-oasis-espresso hover:text-oasis-hover transition-all duration-300 font-medium hover:scale-105 relative group px-2 py-1 md:px-0 md:py-0" 
           tabIndex={0}
           onClick={e => handleNavClick(e, item.href)}
         >
@@ -48,7 +48,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isNavOpen, onNavigate })
       ))}
       <a 
         href="#booking" 
-        className="bg-gradient-to-r from-oasis-espresso to-oasis-hover text-white px-6 py-2.5 rounded-full hover:shadow-xl transition-all duration-300 font-medium text-base md:text-sm transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden group mt-2 md:mt-0" 
+        className="bg-gradient-to-r from-oasis-espresso to-oasis-hover text-white px-5 py-2 rounded-full hover:shadow-xl transition-all duration-300 font-medium text-sm sm:text-base md:text-sm transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden group mt-2 md:mt-0" 
         tabIndex={0}
         onClick={e => handleNavClick(e, '#booking')}
       >

@@ -23,6 +23,8 @@ const badgeVariants = cva(
   }
 )
 
+// TODO: Move shared constants/functions to a separate file for Fast Refresh compatibility.
+
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}

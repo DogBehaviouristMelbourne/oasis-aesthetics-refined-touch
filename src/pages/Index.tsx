@@ -11,6 +11,7 @@ import { TrustBadges } from '../components/TrustBadges';
 import { Header } from '../components/Header';
 import { WhyChooseUs } from '../components/WhyChooseUs';
 import { Newsletter } from '../components/Newsletter';
+import { Footer } from '../components/Footer';
 
 const Index = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -131,6 +132,14 @@ const Index = () => {
         {/* Gallery */}
         <section id="gallery" className="pt-16">
           <Gallery />
+          {/* Instagram Embed - Our Work */}
+          <div className="flex justify-center mt-8">
+            <div style={{maxWidth:540, width:'100%'}}>
+              <blockquote className="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DKyQ657vreE/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style={{background:'#FFF', border:0, borderRadius:3, boxShadow:'0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', margin:'1px', maxWidth:540, minWidth:326, padding:0, width:'99.375%'}}>
+                {/* Instagram embed will be loaded by script */}
+              </blockquote>
+            </div>
+          </div>
         </section>
 
         {/* Booking System */}

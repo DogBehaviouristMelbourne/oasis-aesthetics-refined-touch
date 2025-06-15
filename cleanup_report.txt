@@ -1,0 +1,26 @@
+# Project Cleanup Report
+
+## Actions Taken
+- Force closed all local dev servers (ports 5173, 5174).
+- Ran ESLint to auto-fix and report code issues.
+- Identified the following distractions and unused files:
+  - MCP-related files: `src/pages/McpDemo.tsx`, `src/lib/mcp.ts`, `src/lib/mcp.config.ts` (not in use, MCP integration paused)
+  - ESLint warnings in several UI files about exporting non-component code (see below for details)
+
+## Recommendations
+- Remove or archive MCP-related files if not needed.
+- Address ESLint warnings in:
+  - `src/components/ui/badge.tsx`
+  - `src/components/ui/button.tsx`
+  - `src/components/ui/form.tsx`
+  - `src/components/ui/sidebar.tsx`
+  - `src/components/ui/sonner.tsx`
+- Remove any other demo, test, or mock files not needed for production.
+- Review and remove unused images or assets in `public/` if not referenced in code.
+
+## Next Steps
+- Delete MCP and demo files if you want a distraction-free, production-ready codebase.
+- Optionally, split out shared constants/functions from UI component files to resolve Fast Refresh warnings.
+
+---
+This report was generated automatically to help you keep your project clean and focused.

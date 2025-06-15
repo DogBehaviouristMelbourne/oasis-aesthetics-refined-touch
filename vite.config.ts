@@ -12,4 +12,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: '/', // Ensure assets load from root
+  preview: {
+    // Enable SPA fallback for React Router
+    historyApiFallback: true
+  }
 });

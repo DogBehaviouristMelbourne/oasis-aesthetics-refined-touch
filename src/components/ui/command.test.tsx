@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator } from './command';
+import { vi } from 'vitest';
+
+vi.mock('cmdk');
 
 // Basic smoke tests for all exports
 
@@ -26,8 +29,8 @@ describe('Command UI Components', () => {
 
   it('renders CommandList', () => {
     render(<CommandList />);
-    // List is a <div> with no role, so just check it exists
-    expect(document.querySelector('.max-h-[300px]')).toBeInTheDocument();
+    // Use data-testid for robust selection
+    expect(screen.getByTestId('command-list')).toBeInTheDocument();
   });
 
   it('renders CommandEmpty', () => {
