@@ -35,22 +35,25 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({ scrollY, variant = '
 
   // Default (photo) variant
   return (
-    <section className="relative min-h-[70vh] flex flex-col-reverse md:flex-row items-center justify-center px-0 overflow-hidden pt-24 pb-8 bg-oasis-base font-sans">
-      {/* Full-bleed hero image background */}
-      <img
-        src="/hero-bg.jpg"
-        alt="Client eyebrow transformation"
-        className="absolute inset-0 w-full h-full object-cover object-center z-0"
-        draggable={false}
-        loading="eager"
-        style={{ filter: 'brightness(97%) contrast(1.04)' }}
-      />
-      {/* Gradient overlay for contrast (top 40% on mobile, 60% on desktop) */}
+    <section className="relative w-full h-screen overflow-hidden bg-oasis-base font-sans">
+      {/* Responsive hero images */}
+      <picture>
+        <source media="(min-width: 768px)" srcSet="/hero-desktop.jpg" />
+        <img
+          src="/hero-mobile.jpg"
+          alt="Precision brow sculpting"
+          className="absolute inset-0 w-full h-full object-cover object-center-top z-0"
+          draggable={false}
+          loading="eager"
+          style={{ filter: 'brightness(97%) contrast(1.04)' }}
+        />
+      </picture>
+      {/* Gradient overlay for contrast - bottom third */}
       <div
         className="absolute inset-0 z-10 pointer-events-none"
         aria-hidden="true"
         style={{
-          background: 'linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.0) 100%)'
+          background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%)'
         }}
       ></div>
       {/* Decorative elements (optional, can be removed for minimalism) */}
@@ -62,34 +65,45 @@ export const ParallaxHero: React.FC<ParallaxHeroProps> = ({ scrollY, variant = '
         className="absolute bottom-8 right-4 w-12 h-12 bg-oasis-clay/15 rounded-full blur-lg animate-pulse z-20"
         style={{ transform: `translateY(${scrollY * 0.15}px)`, animationDelay: '1s' }}
       />
-      {/* Content layout, mobile-first: text above image on <768px */}
-      <div className="relative z-30 w-full flex flex-col items-center justify-center min-h-[60vh] px-4">
-        <div className="w-full max-w-2xl mx-auto text-left md:text-left flex flex-col items-start justify-center" style={{marginTop: '0'}}>
-          <h1 className="font-sans font-bold text-white text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[2.5rem] xl:text-[3rem] leading-tight mb-4" style={{textShadow: '0 2px 8px rgba(0,0,0,0.18)', letterSpacing: '-0.01em'}}>
-            Enhance Your <span className="block">Natural Beauty</span>
+      {/* Content positioned in bottom third */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 w-full h-[33vh] flex flex-col justify-end px-4 pb-8 md:pb-12">
+        <div className="w-full max-w-2xl mx-auto text-left flex flex-col items-start justify-end">
+          <h1 className="font-sans font-bold text-white leading-tight mb-4"
+              style={{
+                fontSize: 'clamp(1.25rem, 5vw, 3rem)',
+                textShadow: '0 2px 8px rgba(0,0,0,0.18)',
+                letterSpacing: '-0.01em'
+              }}>
+            Enhance Your Natural Beauty
           </h1>
-          <p className="text-white text-base sm:text-lg font-normal mb-3 leading-relaxed" style={{textShadow: '0 1px 4px rgba(0,0,0,0.18)'}}>
+          <p className="text-white font-normal mb-3 leading-relaxed"
+             style={{
+               fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+               textShadow: '0 1px 4px rgba(0,0,0,0.18)'
+             }}>
             Precision Brow Sculpting & Waxing
           </p>
-          <p className="text-white text-base font-normal mb-8 max-w-xl" style={{textShadow: '0 1px 4px rgba(0,0,0,0.18)'}}>
-            Expert treatments in a tranquil boutique studio. Soft, gentle, and tailored for Melbourne’s best brows.
+          <p className="text-white font-normal mb-6 max-w-xl"
+             style={{
+               fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+               textShadow: '0 1px 4px rgba(0,0,0,0.18)'
+             }}>
+            Expert treatments in a tranquil boutique studio. Soft, gentle, and tailored for Melbourne's best brows.
           </p>
-          <div className="flex flex-col sm:flex-row w-full gap-3 sm:gap-4">
+          <div className="flex flex-col md:flex-row w-full gap-3 md:gap-4">
             <a
               href="https://oasisaesthetics.setmore.com/book"
-              className="inline-flex items-center justify-center bg-[#232323] text-white font-semibold text-base rounded-full px-8 py-4 min-h-[44px] min-w-[44px] shadow-lg hover:bg-oasis-hover transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+              className="inline-flex items-center justify-center bg-[#B89F89] text-white font-bold rounded-lg px-6 py-3 shadow-lg hover:bg-[#A08B73] hover:transform hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
               tabIndex={0}
               target="_blank"
               rel="noopener"
-              style={{marginBottom: '0'}}
             >
               Book Now
             </a>
             <a
               href="#services"
-              className="inline-flex items-center justify-center bg-[#232323] text-white font-semibold text-base rounded-full px-8 py-4 min-h-[44px] min-w-[44px] shadow-lg hover:bg-oasis-hover transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+              className="inline-flex items-center justify-center bg-transparent text-white font-medium border-2 border-white rounded-lg px-6 py-3 shadow-lg hover:bg-white hover:text-[#4A3B36] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
               tabIndex={0}
-              style={{marginBottom: '0'}}
             >
               View Services
             </a>
