@@ -15,7 +15,7 @@ export const Header: React.FC<HeaderProps> = ({ isNavOpen, toggleNav, handleKeyD
     if (isNavOpen) toggleNav();
   };
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrollY > 50 ? 'bg-oasis-base/95 backdrop-blur-xl shadow-lg' : 'bg-oasis-base/90 backdrop-blur-lg'} border-b border-oasis-taupe/20`}>
+    <header className={`fixed top-0 w-full z-[1000] transition-all duration-300 pb-4 ${scrollY > 50 ? 'bg-oasis-base/95 backdrop-blur-xl shadow-lg' : 'bg-oasis-base/90 backdrop-blur-lg'} border-b border-oasis-taupe/20`}>
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
